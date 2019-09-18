@@ -1,6 +1,7 @@
 #include <stdbool.h>
 #include <string.h>
 #include <stdio.h>
+#include <ctype.h>
 
 int main(int argc, char *argv[]) //
 // bool IsIsogram(char *str)
@@ -18,16 +19,16 @@ int main(int argc, char *argv[]) //
         printf("arrlen=%i at iteration %i \n", arrlen, i);
         for (int j = 0; j < arrlen; j++)
         {
-            if (str[i] == array[j])
+            if (tolower(str[i]) == tolower(array[j]))
             {
                 printf("HEY %c==%c\n", str[i], array[j]);
-                return 1;
+                return 1; //false
             }
             printf("match: %c-%c at %i\n", str[i], array[j], j);
         }
         array[i] = str[i];
         printf("%s-%i\n", array, i);
     }
-    return 0;
+    return 0; //true
 }
 //IsIsogram("abcdefghijklmnop"), 1)
